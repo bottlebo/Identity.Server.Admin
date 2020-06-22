@@ -1,0 +1,127 @@
+﻿{
+  "IdentityServerData": {
+    "IdentityResources": [
+      {
+        "Name": "roles",
+        "Enabled": true,
+        "DisplayName": "Roles",
+        "UserClaims": [
+          "role"
+        ]
+      },
+      {
+        "Name": "openid",
+        "Enabled": true,
+        "Required": true,
+        "DisplayName": "Your user identifier",
+        "UserClaims": [
+          "sub"
+        ]
+      },
+      {
+        "Name": "profile",
+        "Enabled": true,
+        "DisplayName": "User profile",
+        "Description": "Your user profile information (first name, last name, etc.)",
+        "Emphasize": true,
+        "UserClaims": [
+          "name",
+          "family_name",
+          "given_name",
+          "middle_name",
+          "nickname",
+          "preferred_username",
+          "profile",
+          "picture",
+          "website",
+          "gender",
+          "birthdate",
+          "zoneinfo",
+          "locale",
+          "updated_at"
+        ]
+      },
+      {
+        "Name": "email",
+        "Enabled": true,
+        "DisplayName": "Your email address",
+        "Emphasize": true,
+        "UserClaims": [
+          "email",
+          "email_verified"
+        ]
+      },
+      {
+        "Name": "address",
+        "Enabled": true,
+        "DisplayName": "Your address",
+        "Emphasize": true,
+        "UserClaims": [
+          "address"
+        ]
+      }
+    ],
+    "ApiResources": [
+      {
+        "Name": "adminClientId_api",
+        "Scopes": [
+          {
+            "Name": "adminClientId_api",
+            "DisplayName": "adminClientId_api",
+            "Required": true,
+            "UserClaims": [
+              "role",
+              "name"
+            ]
+          }
+        ]
+      }
+    ],
+    "Clients": [
+      {
+        "ClientId": "adminClientId",
+        "ClientName": "adminClientId",
+        "ClientUri": "https://admin.yourprofile.global",
+        "AllowedGrantTypes": [
+          "hybrid"
+        ],
+        "ClientSecrets": [
+          {
+            "Value": "d49c1d2735536baa4de1cc6"
+          }
+        ],
+        "RedirectUris": [
+          "https://admin.yourprofile.global/signin-oidc"
+        ],
+        "FrontChannelLogoutUri": "https://admin.yourprofile.global/signout-oidc",
+        "PostLogoutRedirectUris": [
+          "https://admin.yourprofile.global/signout-callback-oidc"
+        ],
+        "AllowedCorsOrigins": [
+          "https://admin.yourprofile.global"
+        ],
+        "AllowedScopes": [
+          "openid",
+          "email",
+          "profile",
+          "roles"
+        ]
+      },
+      {
+        "ClientId": "adminClientId_api_swaggerui",
+        "ClientName": "adminClientId_api_swaggerui",
+        "AllowedGrantTypes": [
+          "implicit"
+        ],
+        "RedirectUris": [
+          "http://localhost:5001/swagger/oauth2-redirect.html"
+        ],
+        "AllowedScopes": [
+          "adminClientId_api"
+        ],
+        "AllowAccessTokensViaBrowser": true
+
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+﻿{
+    "Serilog": {
+        "MinimumLevel": {
+            "Default": "Error",
+            "Override": {
+                "Skoruba": "Information"
+            }
+        },
+        "WriteTo": [
+            {
+                "Name": "Console"
+            },
+            {
+                "Name": "File",
+                "Args": {
+                    "path": "Log\\admin.txt",
+                    "rollingInterval": "Day"
+                }
+            },
+            {
+                "Name": "PostgreSQL",
+                "Args": {
+                    "connectionString": "Host=localhost;Port=5432;Database=identity;Username=main;Password=1m+h3M4iN_us3r::;",
+                    "tableName": "Log",
+                    "columnOptionsSection": {
+                        "addStandardColumns": [ "LogEvent" ],
+                        "removeStandardColumns": [ "Properties" ]
+                    }
+                }
+            }
+        ]
+    }
+}
